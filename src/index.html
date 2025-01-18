@@ -4,11 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./output.css">
   <title>BookMark</title>
 </head>
 <body>
+  <header class="container flex items-center justify-between py-10 px-5">
+    <a href="#"><img class="w-44" src="./images/logo-bookmark.svg" alt="logo-bookmark"></a>
+    <nav id="menu-mobile" class="hidden justify-center lg:justify-between lg:block z-40 max-lg:fixed max-lg:w-full max-lg:inset-0">
+      <div class="bg-[#242A45]/90 backdrop-blur-xl fixed lg:hidden inset-0 p-10">
+        <div class="flex items-center justify-between border-b-2 border-b-white/20 pb-10">
+          <img class="w-44" src="images/logo-bookmark copy.svg" alt="logo-bookmark">
+          <button id="button-close-menu"><img class="w-5" src="images/icon-close.svg" alt="icon-close"></button>
+        </div>
+      </div>
+      <ul class="flex items-center gap-4 max-xl:z-50 max-lg:absolute top-20 max-lg:flex-col max-lg:w-full max-lg:divide-y-2 max-lg:divide-white/20 *:w-full max-md:*:py-4 lg:*:py-0 p-10 lg:p-0">
+        <li class="max-lg:text-center"><a href="#features" class="p-4 uppercase lg:font-medium text-white tracking-widest text-sm max-lg:text-xl font-normal lg:text-Very-dark-blue hover:text-soft-red">features</a></li>
+        <li class="max-lg:text-center"><a href="#princing" class="p-4 uppercase lg:font-medium text-white tracking-widest text-sm max-lg:text-xl font-normal lg:text-Very-dark-blue hover:text-soft-red">princing</a></li>
+        <li class="max-lg:text-center"><a href="#contact" class="p-4 uppercase lg:font-medium text-white tracking-widest text-sm max-lg:text-xl font-normal lg:text-Very-dark-blue hover:text-soft-red">contact</a></li>
+        <li class="max-lg:text-center"><a href="#" class="py-2 px-5 bg-transparent lg:bg-soft-red font-medium text-white text-sm max-lg:text-xl rounded-md lg:hover:bg-white border-[3px] lg:border-transparent lg:hover:text-soft-red uppercase tracking-widest lg:hover:border-soft-red inline-block w-full">Login</a></li>
+      </ul>
+      <div class="absolute flex lg:hidden gap-10 self-end py-14">
+        <img src="images/icon-facebook.svg" alt="icon-facebook">
+        <img src="images/icon-twitter.svg" alt="icon-twitter">
+      </div>
+    </nav>
+    <button id="button-mobile" class="block lg:hidden"><img class="w-7" src="images/icon-hamburger.svg" alt="menu-hamburgue"></button>
+  </header>
+  <script>
+    const buttonMobile = document.getElementById('button-mobile')
+    const menuMobile = document.getElementById('menu-mobile')
+
+    function showMenuMobile() {
+      menuMobile.classList.toggle('hidden')
+      menuMobile.classList.toggle('flex')
+    }
+
+    function closeMenuMobile({target}) {
+      if (target.tagName === "A" || target.closest('#button-close-menu')) {
+        menuMobile.classList.remove('flex')
+        menuMobile.classList.add('hidden')
+      }
+    }
+
+    menuMobile.addEventListener('click', closeMenuMobile)
+    buttonMobile.addEventListener('click', showMenuMobile)
+  </script>
 </body>
 </html>
