@@ -44,10 +44,65 @@
         </div>
       </div>
       <div class="bg-gradient-to-t from-soft-blue ml-20 from-[70%] to-white to-[70%] rounded-l-full">
-        <img class="-translate-x-10 lg:-translate-x-32 lg:w-700px]" src="images/illustration-hero.svg" alt="illustration-hero">
+        <img class="-translate-x-10 lg:-translate-x-32" src="images/illustration-hero.svg" alt="illustration-hero">
       </div>
     </div>
   </main>
+  <!-- features -->
+  <section class="flex flex-col gap-20">
+    <div class="container pt-20 flex flex-col items-center justify-center">
+      <nav class="mx-auto flex flex-col items-center gap-5 lg:gap-10">
+        <h2 class="font-bold text-4xl">Features</h2>
+        <p class="text-grayish-blue text-lg text-center font-medium max-w-[500px]">Our aim is to make it quik easy for you to access your favorite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
+        <ul id="list-features" class="flex max-md:flex-col items-center gap-2 lg:border-b-2 border-zinc-200 max-md:w-full max-md:*:w-full max-md:p-8">
+          <li class="flex flex-col items-center justify-between font-bold max-md:text-center tracking-wide max-md:pt-4 lg:px-12 h-14 max-md:border-t-2 border-b-2 border-zinc-200 cursor-pointer">
+            Simple BookMarking
+            <span class="opacity-0 w-[150px] h-1 bg-soft-red"></span>
+          </li>
+          <li class="flex flex-col items-center justify-between font-bold max-md:text-center tracking-wide max-md:pt-4 lg:px-10 h-14 border-b-2 border-zinc-200 cursor-pointer">
+            Speedy Shearching
+            <span class="opacity-0 w-[150px] h-1 bg-soft-red"></span>
+          </li>
+          <li class="flex flex-col items-center justify-between font-bold max-md:text-center tracking-wide max-md:pt-4 lg:px-10 h-14 border-b-2 border-zinc-200 cursor-pointer">
+            Easy Sharing
+            <span class="opacity-0 w-[150px] h-1 bg-soft-red"></span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="container-features" class="lg:mt-5 mb-10">
+      <div id="feature" class="container relative hidden lg:grid-cols-2 gap-10 lg:gap-40 mb-10">
+        <div class="flex justify-center items-center bg-gradient-to-t from-soft-blue from-[90%] to-white to-[90%] rounded-r-full max-md:mr-[75px]">
+          <img class="lg:translate-x-28 translate-x-10 -translate-y-8 lg:-translate-y-10 w-[500px]" src="images/illustration-features-tab-1.svg" alt="illustration-features-tab-1">
+        </div>
+        <div class="flex flex-col max-md:items-center gap-10">
+          <h2 class="font-bold max-md:text-center text-2xl capitalize max-w-screen-sm">Bookmark in one click</h2>
+          <p class="text-grayish-blue max-md:text-center font-medium max-w-[400px] max-md:mx-auto lg:max-w-[450px]">Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favorite sites.</p>
+          <button class="bg-soft-blue font-bold text-white py-2 px-5 rounded-md lg:self-start">More info</button>
+        </div>
+      </div>
+      <div id="feature" class="container relative hidden lg:grid-cols-2 gap-10 lg:gap-40 mb-10">
+        <div class="flex justify-center items-center bg-gradient-to-t from-soft-blue from-[90%] to-white to-[90%] rounded-r-full max-md:mr-[75px]">
+          <img class="lg:translate-x-28 translate-x-16 -translate-y-8 lg:-translate-y-10 w-[500px]" src="images/illustration-features-tab-2.svg" alt="illustration-features-tab-1">
+        </div>
+        <div class="flex flex-col max-md:items-center gap-10">
+          <h2 class="font-bold max-md:text-center text-2xl capitalize max-w-screen-sm">Intelligent search</h2>
+          <p class="text-grayish-blue max-md:text-center font-medium max-w-[400px] max-md:mx-auto lg:max-w-[450px]">Our powerful search feature will help you find saved sites in on time at all. No need to trawl through all of your bookmarks.</p>
+          <button class="bg-soft-blue font-bold text-white py-2 px-5 rounded-md lg:self-start">More info</button>
+        </div>
+      </div>
+      <div id="feature" class="container relative hidden lg:grid-cols-2 gap-10 lg:gap-40 mb-10">
+        <div class="flex justify-center items-center bg-gradient-to-t from-soft-blue from-[90%] to-white to-[90%] rounded-r-full max-md:mr-[75px]">
+          <img class="lg:translate-x-28 translate-x-10 -translate-y-8 lg:-translate-y-10 w-[500px]" src="images/illustration-features-tab-3.svg" alt="illustration-features-tab-1">
+        </div>
+        <div class="flex flex-col max-md:items-center gap-10">
+          <h2 class="font-bold max-md:text-center text-2xl capitalize max-w-screen-sm">Bookmark in one click</h2>
+          <p class="text-grayish-blue max-md:text-center font-medium max-w-[400px] max-md:mx-auto lg:max-w-[450px]">Easily share your bookmarks and colletions with others. Create a shareable link that you can send at the click of a button.</p>
+          <button class="bg-soft-blue font-bold text-white py-2 px-5 rounded-md lg:self-start">More info</button>
+        </div>
+      </div>
+    </div>
+  </section>
   <script>
     const buttonMobile = document.getElementById('button-mobile')
     const menuMobile = document.getElementById('menu-mobile')
@@ -66,6 +121,33 @@
 
     menuMobile.addEventListener('click', closeMenuMobile)
     buttonMobile.addEventListener('click', showMenuMobile)
+
+    const listNaFeatures = document.querySelectorAll("#list-features li");
+    const containerFeatures = document.querySelectorAll("#container-features #feature");
+
+    // Configuração inicial
+    listNaFeatures[0].firstElementChild.classList.add('opacity-100');
+    containerFeatures[0].style.display = 'grid';
+
+    function activeTab(index) {
+      containerFeatures.forEach(content => {
+        content.style.display = 'none';
+      });
+
+      containerFeatures[index].style.display = 'grid';
+    }
+
+    listNaFeatures.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        listNaFeatures.forEach(listItem => {
+          listItem.firstElementChild.classList.remove('opacity-100');
+        });
+
+        item.firstElementChild.classList.add('opacity-100');
+        activeTab(index);
+      });
+    });
+
   </script>
 </body>
 </html>
