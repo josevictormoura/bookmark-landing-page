@@ -103,11 +103,12 @@
       </div>
     </div>
   </section>
+  <!-- Download extensoes -->
   <section class="p-10 mb-10">
     <div class="container grid gap-14 items-center justify-center">
       <div class="flex flex-col gap-5 items-center justify-center">
         <h2 class="text-center font-bold max-md:text-center text-2xl capitalize max-w-screen-sm">Download the extension</h2>
-        <p class="text-center max-w-[500px] text-grayish-blue font-bold mb-10">We´ve got more browsers in the pipeliene. Please do let us know if you´ve got a favorite you´d likes us to prioritize.</p>
+        <p class="text-center max-w-[500px] text-grayish-blue mb-10">We´ve got more browsers in the pipeliene. Please do let us know if you´ve got a favorite you´d likes us to prioritize.</p>
       </div>
       <div class="flex gap-2 lg:gap-10 max-md:flex-col items-center justify-center">
         <div class="flex flex-col items-center justify-center gap-5 shadow-2xl max-w-fit p-10 rounded-xl -translate-y-10">
@@ -142,6 +143,43 @@
         </div>
       </div>
     </div>
+  </section>
+  <!-- perguntas frequente -->
+  <section class="container p-5 lg:p-10 mt-20">
+    <div class="flex flex-col gap-5 items-center justify-center">
+      <h2 class="text-center font-bold max-md:text-center text-2xl capitalize max-w-screen-sm">Frequently Asked Questions</h2>
+      <p class="text-center max-w-[500px] text-grayish-blue mb-12">Here are some of our FAQs. If you have any other questions you´d liike answered please feel free top email us.</p>
+    </div>
+    <dl id="faq-list" class="mx-auto max-w-2xl">
+      <div class="border-t-2 border-zinc-200 px-2">
+        <dt id="faq-item" class="grid grid-cols-[1fr_20px] items-center py-5  cursor-pointer">
+          <p class="lg:text-xl font-normal hover:text-soft-red">What is BookMark?</p>
+          <img class="transition-transform rotate-180" src="images/icon-arrow-up.svg" alt="icon-arrow">
+        </dt>
+        <dd class="block pb-5 font-normal text-justify text-grayish-blue leading-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis amet inventore modi impedit laboriosam eaque natus quidem rerum optio iste cum esse maxime quibusdam, quisquam veritatis. Maiores quisquam ipsam ab, ea illo voluptatem, repellat rerum obcaecati veritatis quaerat delectus blanditiis? Ullam eaque cumque esse eius. Repellendus quos et eligendi nostrum.</dd>
+      </div>
+      <div class="border-b-2 border-t-2 border-zinc-200 px-2">
+        <dt id="faq-item" class="grid grid-cols-[1fr_20px] items-center py-5 cursor-pointer">
+          <p class="lg:text-xl font-normal hover:text-soft-red">How can l request a new browser?</p>
+          <img class="transition-transform" src="images/icon-arrow-down.svg" alt="icon-arrow">
+        </dt>
+        <dd class="hidden pb-5 font-normal text-justify text-grayish-blue leading-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis amet inventore modi impedit laboriosam eaque natus quidem rerum optio iste cum esse maxime quibusdam, quisquam veritatis. Maiores quisquam ipsam ab, ea illo voluptatem, repellat rerum obcaecati veritatis quaerat delectus blanditiis? Ullam eaque cumque esse eius. Repellendus quos et eligendi nostrum.</dd>
+      </div>
+      <div class=" border-zinc-200 px-2">
+        <dt id="faq-item" class="grid grid-cols-[1fr_20px] items-center py-5 cursor-pointer">
+          <p class="lg:text-xl font-normal hover:text-soft-red">Is there a mobile app?</p>
+          <img class="transition-transform" src="images/icon-arrow-down.svg" alt="icon-arrow">
+        </dt>
+        <dd class="hidden pb-5 font-normal text-justify  text-grayish-blue leading-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis amet inventore modi impedit laboriosam eaque natus quidem rerum optio iste cum esse maxime quibusdam, quisquam veritatis. Maiores quisquam ipsam ab, ea illo voluptatem, repellat rerum obcaecati veritatis quaerat delectus blanditiis? Ullam eaque cumque esse eius. Repellendus quos et eligendi nostrum.</dd>
+      </div>
+      <div class="border-b-2 border-t-2 border-zinc-200 px-2">
+        <dt id="faq-item" class="grid grid-cols-[1fr_20px] items-center py-5 cursor-pointer">
+          <p class="lg:text-xl font-normal hover:text-soft-red">What abount other Chomium browsers?</p>
+          <img class="transition-transform" src="images/icon-arrow-down.svg" alt="icon-arrow">
+        </dt>
+        <dd class="hidden pb-5 font-normal text-justify  text-grayish-blue leading-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis amet inventore modi impedit laboriosam eaque natus quidem rerum optio iste cum esse maxime quibusdam, quisquam veritatis. Maiores quisquam ipsam ab, ea illo voluptatem, repellat rerum obcaecati veritatis quaerat delectus blanditiis? Ullam eaque cumque esse eius. Repellendus quos et eligendi nostrum.</dd>
+      </div>
+    </dl>
   </section>
   <script>
     const buttonMobile = document.getElementById('button-mobile')
@@ -179,6 +217,7 @@
 
     listNaFeatures.forEach((item, index) => {
       item.addEventListener('click', () => {
+
         listNaFeatures.forEach(listItem => {
           listItem.firstElementChild.classList.remove('opacity-100');
         });
@@ -186,6 +225,22 @@
         item.firstElementChild.classList.add('opacity-100');
         activeTab(index);
       });
+    });
+
+    const faqList = document.querySelector("#faq-list");
+
+    faqList.addEventListener("click", ({target}) => {
+      const dt = target.closest("#faq-item")
+      
+      if(!dt)return
+
+      const img = dt.querySelector("img")
+      const content = dt.nextElementSibling
+
+      const isRotate = img.classList.toggle("rotate-180")
+
+      img.src = isRotate ? 'images/icon-arrow-up.svg' : 'images/icon-arrow-down.svg'
+      content.classList.toggle("hidden", !isRotate)
     });
 
   </script>
