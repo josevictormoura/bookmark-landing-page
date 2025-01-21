@@ -145,7 +145,7 @@
     </div>
   </section>
   <!-- perguntas frequente -->
-  <section class="container p-5 lg:p-10 mt-20">
+  <section class="container grid items-center justify-center p-5 lg:p-10 mt-20">
     <div class="flex flex-col gap-5 items-center justify-center">
       <h2 class="text-center font-bold max-md:text-center text-2xl capitalize max-w-screen-sm">Frequently Asked Questions</h2>
       <p class="text-center max-w-[500px] text-grayish-blue mb-12">Here are some of our FAQs. If you have any other questions you´d liike answered please feel free top email us.</p>
@@ -180,7 +180,43 @@
         <dd class="hidden pb-5 font-normal text-justify  text-grayish-blue leading-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis amet inventore modi impedit laboriosam eaque natus quidem rerum optio iste cum esse maxime quibusdam, quisquam veritatis. Maiores quisquam ipsam ab, ea illo voluptatem, repellat rerum obcaecati veritatis quaerat delectus blanditiis? Ullam eaque cumque esse eius. Repellendus quos et eligendi nostrum.</dd>
       </div>
     </dl>
+    <button class="bg-soft-blue font-bold text-white py-2 px-5 rounded-md mx-auto mt-10">More info</button>
   </section>
+  <!-- new laster -->
+  <section class="bg-soft-blue mt-20">
+    <div class="container flex flex-col gap-6 lg:gap-12 items-center justify-center p-10 max-w-2xl mx-auto">
+      <p class="uppercase tracking-widest font-bold text-white text-xl">35,000+ already joined</p>
+      <h2 class="text-white font-bold text-center text-2xl lg:text-4xl max-w-[500px]">Stay up-to-date with what we´re doing</h2>
+      <div class="grid lg:grid-cols-[2fr_150px] gap-4 w-full items-start">
+        <div>
+          <div id="content-input" class="p-1 rounded-md">
+            <div class="flex justify-between items-center p-3 bg-white rounded-md">
+              <input class="outline-none" type="email" id="email" placeholder="Enter your email address">
+              <img id="icon-erro" class="hidden" src="images/icon-error.svg" alt="icon-error">
+            </div>
+            <span id="span-erro" class="hidden text-white text-[12px] italic font-bold ml-3 py-1">Whoops, moke sure it´s an email</span>
+          </div>
+        </div>
+        <button id="btn-submit-email" class="bg-soft-red py-2 lg:p-3 text-white rounded-md font-bold border-2 border-transparent hover:border-soft-red hover:text-soft-red hover:bg-white ">Contact Us</button>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-blue-950 p-10">
+    <div class="container flex max-md:flex-col items-center justify-between px-20">
+      <div class="flex max-md:flex-col lg:gap-10">
+        <img src="images/logo-bookmark copy.svg" alt="logo-bookmark">
+        <ul class="flex max-md:flex-col items-center max-md:py-8 gap-5">
+          <li class="max-lg:text-center"><a href="#features" class="p-4 uppercase lg:font-medium text-white tracking-widest text-[12px] font-normal hover:text-soft-red">features</a></li>
+          <li class="max-lg:text-center"><a href="#princing" class="p-4 uppercase lg:font-medium text-white tracking-widest text-[12px] font-normal hover:text-soft-red">princing</a></li>
+          <li class="max-lg:text-center"><a href="#contact" class="p-4 uppercase lg:font-medium text-white tracking-widest text-[12px] font-normal hover:text-soft-red">contact</a></li>
+        </ul>
+      </div>
+      <div class="flex gap-10">
+        <img src="images/icon-facebook.svg" alt="icon-facebook">
+        <img src="images/icon-twitter.svg" alt="icon-twitter">
+      </div>
+    </div>
+  </footer>
   <script>
     const buttonMobile = document.getElementById('button-mobile')
     const menuMobile = document.getElementById('menu-mobile')
@@ -243,6 +279,28 @@
       content.classList.toggle("hidden", !isRotate)
     });
 
+    const btnSubmitEmail = document.getElementById("btn-submit-email")
+    const inputEmail = document.getElementById("email")
+    const spanErro = document.getElementById("span-erro")
+    const contentErro = document.getElementById("content-input")
+    const iconErro = document.getElementById("icon-erro")
+
+    btnSubmitEmail.addEventListener('click', event => {
+      if (inputEmail.value === "") {
+        spanErro.classList.remove('hidden')
+        contentErro.classList.add("bg-soft-red")
+        iconErro.classList.remove('hidden')
+      }
+    })
+
+    inputEmail.addEventListener('input', ({target}) => {
+      if (target.value.length > 0) {
+        spanErro.classList.add('hidden')
+        contentErro.classList.remove("bg-soft-red")
+        iconErro.classList.add('hidden')
+      }
+      
+    })
   </script>
 </body>
 </html>
